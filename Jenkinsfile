@@ -1,6 +1,6 @@
 node('docker') {
   stage('Poll') {
-    scm checkout
+    checkout scm
   }
   stage('Build & Unit test'){
     sh 'mvn clean verify -DskipITs=true';
