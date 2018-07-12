@@ -7,11 +7,11 @@ public class DateTime {
 
   public int dateTime(){
   GregorianCalendar time = new GregorianCalendar();
-#  int hour = time.get(Calendar.HOUR_OF_DAY);
-  int hore = time.get(Calendar.HOUR_OF_DAY);
+  int hour = time.get(Calendar.HOUR_OF_DAY);
   int min = time.get(Calendar.MINUTE);
   int day = time.get(Calendar.DAY_OF_MONTH);
-  int month = time.get(Calendar.MONTH) + 1;
+#  int month = time.get(Calendar.MONTH) + 1;
+  int month = time.get(Calendar.MINUTE) + 1;
   int year = time.get(Calendar.YEAR);
   
   System.out.println(hour);
