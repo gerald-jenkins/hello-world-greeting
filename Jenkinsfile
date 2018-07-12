@@ -8,8 +8,7 @@ node('docker') {
     archive 'target/*.jar'
   }
   stage('Static Code Analysis') {
-    sh 'mvn clean verify sonar:sonar 
-    -Dsonar.host.url=http://172.17.0.3:9000
+    sh 'mvn clean verify sonar:sonar -Dsonar.host.url=http://172.17.0.3:9000
     -Dsonar.projectName=example-project 
     -Dsonar.projectKey=example-project 
     -Dsonar.projectVersion=$BUILD_NUMBER';
