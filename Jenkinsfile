@@ -16,7 +16,7 @@ node('docker') {
     archive 'target/*.jar'
   }
   stage('Publish') {
-    def server = Artifactory.server 'Default Artifcatory Server'
+    def server = Artifactory.server 'Default Artifactory Server'
     def uploadSpec = """{
       "files": [
         {
