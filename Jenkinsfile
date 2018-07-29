@@ -21,8 +21,7 @@ node('docker') {
       "files": [
         {
           "pattern": "target/hello-0.0.1.war",
-          "target": "example-project/${BUILD_NUMBER}/",
-          "props": "Integration-Tested=Yes;Performance-Tested=No"
+          "target": "example-project/${BUILD_NUMBER}/"
         }
       ]
     }"""
@@ -47,7 +46,7 @@ node('docker_pt'){
   }
   stage('Promote build in Artifactory'){
     withCredentials([usernameColonPassword(credentialsId: 'artifactory-account', variable: 'credentials')]){
-      sh 'curl -u${credentials} -X PUT "http://172.17.0.2:8081/artifactory/api/storage/example-project/${BUILD_NUMBER}/hello-0.0.1.war?properties=Performace-Tested=Yes"';
+      sh 'curl -u${credentials} -X PUT "http://172.17.0.2:8081/artifactory/api/storage/example-project/${BUILD_NUMBER}/hello-0.0.1.war"';
     }
   }
 }
