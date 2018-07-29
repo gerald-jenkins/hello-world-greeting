@@ -51,18 +51,18 @@ node('docker_pt'){
     }
   }
 }
-#node('production'){
-#  stage('Deploy to Prod'){
-#    def server = Artifactory.server 'Default Artifactory Server'
-#    def downloadSpec = """{
-#      "files": [
-#        {
-#          "pattern": "example-project/$BUILD_NUMBER/*.zip",
-#          "target": "/home/jenkins/tomcat/webapps/"
-#          "props": "Performance-Tested=Yes;Integration-Tested=Yes"
-#        }
-#      ]
-#    }""
-#  server.download(downloadSpec)
-#  }
-#}
+node('production'){
+  stage('Deploy to Prod'){
+    def server = Artifactory.server 'Default Artifactory Server'
+    def downloadSpec = """{
+      "files": [
+        {
+          "pattern": "example-project/$BUILD_NUMBER/*.zip",
+          "target": "/home/jenkins/tomcat/webapps/"
+          "props": "Performance-Tested=Yes;Integration-Tested=Yes"
+        }
+      ]
+    }""
+  server.download(downloadSpec)
+  }
+}
