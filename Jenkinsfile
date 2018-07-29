@@ -56,6 +56,6 @@ node('production'){
         }
       ]
     }"""
-  server.download(downloadSpec)
+    server.download(downloadSpec)
   }
 }
