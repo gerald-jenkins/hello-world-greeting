@@ -45,8 +45,8 @@ node('docker_pt'){
     step([$class: 'ArtifactArchiver', artifacts: '**/*.jtl'])
   }
 }
-node('production'){
-  stage('Deploy to Prod'){
+node ('production') {
+  stage ('Deploy to Prod'){
     def server = Artifactory.server 'Default Artifactory Server'
     def downloadSpec = """{
       "files": [
@@ -55,7 +55,7 @@ node('production'){
           "target": "/home/jenkins/tomcat/webapps/"
         }
       ]
-    }"""
+    }""
     server.download(downloadSpec)
   }
 }
