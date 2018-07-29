@@ -55,7 +55,7 @@ node ('production') {
           "target": "/home/jenkins/tomcat/webapps/"
         }
       ]
-    }""
+    }"""
     server.download(downloadSpec)
   }
 }
